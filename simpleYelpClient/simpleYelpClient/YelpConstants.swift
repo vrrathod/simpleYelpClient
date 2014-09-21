@@ -10,6 +10,10 @@ import UIKit
 
 class YelpConstants: NSObject {
     //----------------------------------------------------------------------------
+    class func BASE_URL() -> NSURL {
+        return NSURL(string:"http://api.yelp.com/v2/");
+    }
+    //----------------------------------------------------------------------------
     class func CONSUMER_KEY () -> NSString {
         return "FXsEJwYSLAv4iakAChQkhQ";
     }

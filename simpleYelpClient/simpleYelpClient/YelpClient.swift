@@ -12,8 +12,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
     
     // overriding initialization
     required init(consumerKey:NSString, consumerSecret:NSString, accessToken:NSString, accessSecret:NSString) {
-        var baseURL:NSURL = NSURL(string:"http://api.yelp.com/v2/");
-        super.init(baseURL: baseURL, consumerKey: consumerKey, consumerSecret: consumerSecret);
+        super.init(baseURL: YelpConstants.BASE_URL(), consumerKey: consumerKey, consumerSecret: consumerSecret);
         var token:BDBOAuthToken = BDBOAuthToken(token: accessToken, secret: accessSecret, expiration: nil);
         self.requestSerializer.saveAccessToken(token);
     }
