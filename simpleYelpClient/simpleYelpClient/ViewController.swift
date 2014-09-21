@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var client:YelpClient = YelpClient(consumerKey: YelpConstants.CONSUMER_KEY(),
+                                       consumerSecret: YelpConstants.CONSUMER_SECRET(),
+                                       accessToken: YelpConstants.ACCESS_TOKEN(),
+                                       accessSecret: YelpConstants.ACCESS_SECRET() );
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
