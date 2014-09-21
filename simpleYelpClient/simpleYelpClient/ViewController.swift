@@ -18,12 +18,38 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     /// contents of the table is stored in following array
     var tableContents: NSArray? ;
+    
+    // control the url requests
+    var pullHandler:UIRefreshControl = UIRefreshControl();
 
+    // Outlet for the table
+    @IBOutlet weak var yelpTable: UITableView!
+    
+    //----------------------------------------------------------------------------
+    // View loading overrides
+    //----------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        pullHandler.attributedTitle = NSAttributedString(string: "Pull to refersh");
+        pullHandler.tintColor = UIColor.redColor();
+        pullHandler.addTarget(self, action: "updateTable:", forControlEvents: UIControlEvents.ValueChanged);
+        yelpTable.addSubview(pullHandler);
+        
+        //TODO: Add spinner for loading events
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        //TODO: default to last search term. 
+        //TODO: i.e. serialize what user searched last time.
+        client.searchWithTerm("", success: successHandler, failure: failureHandler);
     }
 
+    //----------------------------------------------------------------------------
+    // Memory warning overrides
+    //----------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,10 +68,25 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("vr.codepath.yelp.cell" ) as? UITableViewCell;
+        //TODO: beautify the table cell here.
         return cell!;
     }
 
     //----------------------------------------------------------------------------
+    // Helper methods
+    //----------------------------------------------------------------------------
+    func successHandler(request:AFHTTPRequestOperation!, inResult:AnyObject!) -> Void {
+        NSLog("All Right! we've got some data to process!");
+        
+        //TODO: lets parse data here
+        //TODO: lets setup table contents here
+        //TODO: dont forget to reload table data from here.
+    }
+    
+    func failureHandler(request:AFHTTPRequestOperation!, error:NSError!) -> Void {
+        NSLog("Derp! error \(error.localizedDescription)");
+        // TODO: lets setup network error message here
+    }
 
 }
 
