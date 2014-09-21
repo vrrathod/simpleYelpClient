@@ -16,5 +16,6 @@
 
 
 // Import BDBOAuth1
+#import "BDBOAuth1RequestOperationManager.h"
 
 #endif
