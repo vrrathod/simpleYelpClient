@@ -45,14 +45,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // table view height 
         yelpTable.delegate = self;
         
-        // Add search bar to the 
-        searchBar.showsCancelButton = true;
+        // Add search bar to the
+        searchBar.searchBarStyle = UISearchBarStyle.Minimal;
         searchBar.sizeToFit();
+        var orig:CGPoint = searchBar.frame.origin;
+        var size:CGSize = searchBar.frame.size;
+        searchBar.frame = CGRect(origin: orig, size: CGSize(width: size.width-60, height: size.height));
         searchBar.delegate = self;
         var searchView:UIView = UIView(frame: searchBar.frame);
         searchView.addSubview(searchBar)
         self.navigationItem.titleView = searchView;
-        
+
         //TODO: Add spinner for loading events
     }
     
@@ -101,7 +104,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //----------------------------------------------------------------------------
     func successHandler(request:AFHTTPRequestOperation!, inResult:AnyObject!) -> Void {
         NSLog("All Right! we've got some data to process!");
-        NSLog("\(inResult)");
+//        NSLog("\(inResult)");
         self.tableContents = inResult["businesses"] as? NSArray;
         self.yelpTable.reloadData();
         self.pullHandler.endRefreshing();
@@ -132,6 +135,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchBar.endEditing(true);
         
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.searchBar.endEditing(true);
+    }
 }
 

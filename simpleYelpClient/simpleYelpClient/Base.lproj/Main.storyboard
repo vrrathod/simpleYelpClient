@@ -80,7 +80,13 @@
                             <constraint firstAttribute="trailing" secondItem="E2J-WI-QmU" secondAttribute="trailing" id="cbI-Z7-LS5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xq6-gr-7YG"/>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="5Av-WX-sQX"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="xq6-gr-7YG">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Ien-GL-5Lf"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navigationItem" destination="xq6-gr-7YG" id="Zfv-2H-lMd"/>
                         <outlet property="searchDisplayController" destination="gWH-Ce-OWr" id="Koe-9p-mpl"/>
