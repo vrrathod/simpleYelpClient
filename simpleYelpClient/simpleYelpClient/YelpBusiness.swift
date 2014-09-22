@@ -19,11 +19,12 @@ class YelpBusiness: NSObject {
     
     // BASE GETTER : String
     func BusinessStringInfo(attribute:NSString) -> NSString {
-        var business:NSString = dictBusinessDetails[attribute] as NSString;
-        if( business.length > 0 ) {
+        var attributes:NSArray = (dictBusinessDetails.allKeys as NSArray).filteredArrayUsingPredicate(NSPredicate(format: "SELF like[c] %@", attribute));
+        if(attributes.count > 0 ){
+            var business:NSString = dictBusinessDetails[attribute] as NSString;
             return business;
         } else {
-            return "Who knows!";
+            return "";
         }
     }
     
