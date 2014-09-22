@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Outlet for the table
     @IBOutlet weak var yelpTable: UITableView!
     
+    var searchBar:UISearchBar = UISearchBar();
+    
     //----------------------------------------------------------------------------
     // View loading overrides
     //----------------------------------------------------------------------------
@@ -41,23 +43,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         client.responseSerializer = AFJSONResponseSerializer();
         
         // table view height 
-//        yelpTable.rowHeight = UITableViewAutomaticDimension;
-//        yelpTable.estimatedRowHeight = 100;
         yelpTable.delegate = self;
-        var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(-5.0, 0.0, 600.0, 44.0));
-//        searchBar.autoresizingMask = UIViewAutoresizing.FlexibleWidth;
-        var searchBarView:UIView = UIView(frame: CGRectMake(0.0, 0.0, 500.0, 44.0));
-        searchBar.autoresizingMask = UIViewAutoresizing.None;
+        
+        // Add search bar to the 
+        searchBar.showsCancelButton = true;
+        searchBar.sizeToFit();
         searchBar.delegate = self;
-        searchBarView.addSubview(searchBar);
-        self.navigationItem.titleView = searchBarView;
-//        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
-//        searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//        UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
-//        searchBarView.autoresizingMask = 0;
-//        searchBar.delegate = self;
-//        [searchBarView addSubview:searchBar];
-//        self.navigationItem.titleView = searchBarView;
+        var searchView:UIView = UIView(frame: searchBar.frame);
+        searchView.addSubview(searchBar)
+        self.navigationItem.titleView = searchView;
         
         //TODO: Add spinner for loading events
     }
@@ -66,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewWillAppear(animated);
         //TODO: default to last search term.
         //TODO: i.e. serialize what user searched last time.
-        client.searchWithTerm("1760", success: successHandler, failure: failureHandler);
+        client.searchWithTerm("", success: successHandler, failure: failureHandler);
     }
 
     //----------------------------------------------------------------------------
@@ -111,9 +105,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableContents = inResult["businesses"] as? NSArray;
         self.yelpTable.reloadData();
         self.pullHandler.endRefreshing();
-        //TODO: lets parse data here
-        //TODO: lets setup table contents here
-        //TODO: dont forget to reload table data from here.
     }
     
     func failureHandler(request:AFHTTPRequestOperation!, error:NSError!) -> Void {
@@ -129,6 +120,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //----------------------------------------------------------------------------
     // Search Bar delegate
     //----------------------------------------------------------------------------
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
+        searchBar.endEditing(true);
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = "";
+        client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
+        searchBar.endEditing(true);
+        
+    }
 
 }
 

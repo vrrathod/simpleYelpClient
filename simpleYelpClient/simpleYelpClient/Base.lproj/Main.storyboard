@@ -82,6 +82,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xq6-gr-7YG"/>
                     <connections>
+                        <outlet property="navigationItem" destination="xq6-gr-7YG" id="Zfv-2H-lMd"/>
                         <outlet property="searchDisplayController" destination="gWH-Ce-OWr" id="Koe-9p-mpl"/>
                         <outlet property="yelpTable" destination="E2J-WI-QmU" id="9BN-Lj-1nw"/>
                     </connections>
