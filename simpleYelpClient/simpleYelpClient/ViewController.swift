@@ -40,6 +40,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Update serializer
         client.responseSerializer = AFJSONResponseSerializer();
         
+        // table view height 
+        yelpTable.rowHeight = UITableViewAutomaticDimension;
+        yelpTable.estimatedRowHeight = 100;
+        
         //TODO: Add spinner for loading events
     }
     
@@ -59,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     //----------------------------------------------------------------------------
-    // Table View Data Source
+    // Table View : Data Source
     //----------------------------------------------------------------------------
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if nil != tableContents  {

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="guo-nW-1ZV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E2J-WI-QmU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E2J-WI-QmU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="F2m-mY-4hZ">
@@ -28,19 +29,43 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vr.codepath.yelp.cell" id="UoT-Mb-Sbv" customClass="BusinessTableViewCell" customModule="simpleYelpClient" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vr.codepath.yelp.cell" rowHeight="118" id="UoT-Mb-Sbv" customClass="BusinessTableViewCell" customModule="simpleYelpClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UoT-Mb-Sbv" id="IVR-vW-Fbq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-Zw-Hut">
-                                                    <rect key="frame" x="57" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-Zw-Hut">
+                                                    <rect key="frame" x="117" y="12" width="363" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jui-Hu-QHJ">
+                                                    <rect key="frame" x="8" y="11" width="101" height="101"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="101" id="bV9-Q5-m6I"/>
+                                                        <constraint firstAttribute="height" constant="101" id="oO1-JK-EEk"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
+                                                    <rect key="frame" x="117" y="29" width="50" height="10"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="OTJ-sq-XgQ"/>
+                                                        <constraint firstAttribute="width" constant="50" id="fc0-1C-wjI"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="VFC-Zw-Hut" secondAttribute="trailing" constant="5" id="Vcp-Eq-0bo"/>
+                                                <constraint firstItem="Jui-Hu-QHJ" firstAttribute="leading" secondItem="IVR-vW-Fbq" secondAttribute="leadingMargin" constant="5" id="Yko-Im-cgq"/>
+                                                <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="bNx-Kt-yGh"/>
+                                                <constraint firstItem="VFC-Zw-Hut" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="eD1-ar-wva"/>
+                                                <constraint firstItem="FuX-7r-Qc8" firstAttribute="top" secondItem="VFC-Zw-Hut" secondAttribute="bottom" constant="-4" id="iH4-QO-Ypg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Jui-Hu-QHJ" secondAttribute="bottom" constant="1" id="jSD-5e-3TU"/>
+                                                <constraint firstItem="VFC-Zw-Hut" firstAttribute="top" secondItem="IVR-vW-Fbq" secondAttribute="topMargin" constant="2" id="tum-3f-iiP"/>
+                                                <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="VFC-Zw-Hut" secondAttribute="leading" id="wqQ-X4-e7S"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="businessName" destination="VFC-Zw-Hut" id="vuk-2z-Nc2"/>
@@ -79,7 +104,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1136" y="157"/>
+            <point key="canvasLocation" x="1136" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="upQ-3X-Vax">
