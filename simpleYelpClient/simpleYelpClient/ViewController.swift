@@ -31,11 +31,14 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        
+//        pullHandler.attributedTitle = NSAttributedString(string: "Pull to refersh");
+//        pullHandler.tintColor = UIColor.redColor();
+//        pullHandler.addTarget(self, action: "updateTable:", forControlEvents: UIControlEvents.ValueChanged);
+//        yelpTable.addSubview(pullHandler);
         
-        pullHandler.attributedTitle = NSAttributedString(string: "Pull to refersh");
-        pullHandler.tintColor = UIColor.redColor();
-        pullHandler.addTarget(self, action: "updateTable:", forControlEvents: UIControlEvents.ValueChanged);
-        yelpTable.addSubview(pullHandler);
+        // Update serializer
+        client.responseSerializer = AFJSONResponseSerializer();
         
         //TODO: Add spinner for loading events
     }
@@ -67,8 +70,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("vr.codepath.yelp.cell" ) as? UITableViewCell;
+        var cell: BusinessTableViewCell? = tableView.dequeueReusableCellWithIdentifier("vr.codepath.yelp.cell" ) as? BusinessTableViewCell;
         //TODO: beautify the table cell here.
+        var dict:NSDictionary = self.tableContents![indexPath.row] as NSDictionary ;
+        cell?.setBusinessDetails(dict);
         return cell!;
     }
 
@@ -77,7 +82,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     //----------------------------------------------------------------------------
     func successHandler(request:AFHTTPRequestOperation!, inResult:AnyObject!) -> Void {
         NSLog("All Right! we've got some data to process!");
-        
+        NSLog("\(inResult)");
+        self.tableContents = inResult["businesses"] as? NSArray;
+        self.yelpTable.reloadData();
+        self.pullHandler.endRefreshing();
         //TODO: lets parse data here
         //TODO: lets setup table contents here
         //TODO: dont forget to reload table data from here.
@@ -87,6 +95,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         NSLog("Derp! error \(error.localizedDescription)");
         // TODO: lets setup network error message here
     }
+
+    func updateTable(sender:AnyObject?) {
+        //TODO: update list here
+        NSLog("updateTable");
+    }
+    
 
 }
 

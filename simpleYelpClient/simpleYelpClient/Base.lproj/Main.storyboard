@@ -28,12 +28,23 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vr.codepath.yelp.cell" id="UoT-Mb-Sbv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="vr.codepath.yelp.cell" id="UoT-Mb-Sbv" customClass="BusinessTableViewCell" customModule="simpleYelpClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UoT-Mb-Sbv" id="IVR-vW-Fbq">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-Zw-Hut">
+                                                    <rect key="frame" x="57" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="businessName" destination="VFC-Zw-Hut" id="vuk-2z-Nc2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -54,7 +65,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="gWH-Ce-OWr" id="Koe-9p-mpl"/>
-                        <outlet property="yelpTable" destination="E2J-WI-QmU" id="h3x-1q-Vmc"/>
+                        <outlet property="yelpTable" destination="E2J-WI-QmU" id="9BN-Lj-1nw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
