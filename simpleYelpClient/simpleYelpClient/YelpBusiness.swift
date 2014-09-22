@@ -31,5 +31,13 @@ class YelpBusiness: NSObject {
         return BusinessStringInfo("name");
     }
     
+    func BusinessThumbnailURL() -> NSString {
+        return BusinessStringInfo("image_url");
+    }
+    
+    func BusinessRatingThumbnailURL() -> NSString {
+        return BusinessStringInfo("rating_img_url_small");
+    }
+    
     
 }

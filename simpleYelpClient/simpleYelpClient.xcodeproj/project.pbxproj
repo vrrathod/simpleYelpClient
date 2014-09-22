@@ -96,6 +96,7 @@
 			children = (
 				37C78B7C19CF8C94006DBB58 /* Model */,
 				3712C24819CF5FA000F0867F /* AppDelegate.swift */,
+				37C78B8119CFBD8C006DBB58 /* BusinessTableViewCell.swift */,
 				3712C24A19CF5FA000F0867F /* ViewController.swift */,
 				3712C24C19CF5FA000F0867F /* Main.storyboard */,
 				3712C24F19CF5FA000F0867F /* Images.xcassets */,
@@ -103,7 +104,6 @@
 				3712C24619CF5FA000F0867F /* Supporting Files */,
 				37F33C8619CF6DC000E39933 /* BridgingHeader.h */,
 				37F33C8719CF73D400E39933 /* YelpClient.swift */,
-				37C78B8119CFBD8C006DBB58 /* BusinessTableViewCell.swift */,
 			);
 			path = simpleYelpClient;
 			sourceTree = "<group>";

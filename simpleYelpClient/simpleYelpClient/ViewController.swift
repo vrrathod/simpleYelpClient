@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
     // Client object for making Yelp queries.
     var client:YelpClient = YelpClient(consumerKey: YelpConstants.CONSUMER_KEY(),
@@ -41,17 +41,32 @@ class ViewController: UIViewController, UITableViewDataSource {
         client.responseSerializer = AFJSONResponseSerializer();
         
         // table view height 
-        yelpTable.rowHeight = UITableViewAutomaticDimension;
-        yelpTable.estimatedRowHeight = 100;
+//        yelpTable.rowHeight = UITableViewAutomaticDimension;
+//        yelpTable.estimatedRowHeight = 100;
+        yelpTable.delegate = self;
+        var searchBar:UISearchBar = UISearchBar(frame: CGRectMake(-5.0, 0.0, 600.0, 44.0));
+//        searchBar.autoresizingMask = UIViewAutoresizing.FlexibleWidth;
+        var searchBarView:UIView = UIView(frame: CGRectMake(0.0, 0.0, 500.0, 44.0));
+        searchBar.autoresizingMask = UIViewAutoresizing.None;
+        searchBar.delegate = self;
+        searchBarView.addSubview(searchBar);
+        self.navigationItem.titleView = searchBarView;
+//        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(-5.0, 0.0, 320.0, 44.0)];
+//        searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//        UIView *searchBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 310.0, 44.0)];
+//        searchBarView.autoresizingMask = 0;
+//        searchBar.delegate = self;
+//        [searchBarView addSubview:searchBar];
+//        self.navigationItem.titleView = searchBarView;
         
         //TODO: Add spinner for loading events
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
-        //TODO: default to last search term. 
+        //TODO: default to last search term.
         //TODO: i.e. serialize what user searched last time.
-        client.searchWithTerm("", success: successHandler, failure: failureHandler);
+        client.searchWithTerm("1760", success: successHandler, failure: failureHandler);
     }
 
     //----------------------------------------------------------------------------
@@ -75,11 +90,17 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: BusinessTableViewCell? = tableView.dequeueReusableCellWithIdentifier("vr.codepath.yelp.cell" ) as? BusinessTableViewCell;
-        //TODO: beautify the table cell here.
         var dict:NSDictionary = self.tableContents![indexPath.row] as NSDictionary ;
         cell?.setBusinessDetails(dict);
         return cell!;
     }
+    
+    //----------------------------------------------------------------------------
+    // Table View : View Delegate
+    //----------------------------------------------------------------------------
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 50;
+//    }
 
     //----------------------------------------------------------------------------
     // Helper methods
@@ -105,6 +126,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         NSLog("updateTable");
     }
     
+    //----------------------------------------------------------------------------
+    // Search Bar delegate
+    //----------------------------------------------------------------------------
 
 }
 
