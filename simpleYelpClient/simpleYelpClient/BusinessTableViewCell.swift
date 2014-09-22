@@ -34,6 +34,13 @@ class BusinessTableViewCell: UITableViewCell {
     }
     
     func setImageAsyn(stringURL: NSString, imageView:UIImageView) {
+
+        if( stringURL.isEqualToString("") ) {
+            // Lets not waste network effort if we know there is nothing.
+            NSLog("bailing out the image search");
+            return;
+        }
+        
         var req:NSURLRequest = NSURLRequest(URL: NSURL(string:stringURL));
         let imageRequestSuccess = {
             (request : NSURLRequest!, response : NSHTTPURLResponse!, image : UIImage!) -> Void in
