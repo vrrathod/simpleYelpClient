@@ -35,18 +35,26 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jui-Hu-QHJ">
-                                                    <rect key="frame" x="13" y="13" width="95" height="95"/>
+                                                    <rect key="frame" x="13" y="14" width="95" height="95"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="37G-8J-xMr"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Wxs-LW-YCh"/>
                                                         <constraint firstAttribute="width" secondItem="Jui-Hu-QHJ" secondAttribute="height" multiplier="1:1" id="tcM-eB-eUx"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
-                                                    <rect key="frame" x="117" y="29" width="50" height="10"/>
+                                                    <rect key="frame" x="117" y="30" width="50" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="OTJ-sq-XgQ"/>
                                                         <constraint firstAttribute="width" constant="50" id="fc0-1C-wjI"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-Pl-t3S">
+                                                    <rect key="frame" x="175" y="24" width="65" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Jui-Hu-QHJ" firstAttribute="top" secondItem="IVR-vW-Fbq" secondAttribute="topMargin" constant="5" id="5Dn-ZS-7WQ"/>
@@ -54,8 +62,10 @@
                                                 <constraint firstItem="Jui-Hu-QHJ" firstAttribute="leading" secondItem="IVR-vW-Fbq" secondAttribute="leadingMargin" constant="5" id="Yko-Im-cgq"/>
                                                 <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="bNx-Kt-yGh"/>
                                                 <constraint firstItem="VFC-Zw-Hut" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="eD1-ar-wva"/>
+                                                <constraint firstItem="mgD-Pl-t3S" firstAttribute="centerY" secondItem="FuX-7r-Qc8" secondAttribute="centerY" constant="-0.5" id="gaZ-JD-BqP"/>
                                                 <constraint firstItem="FuX-7r-Qc8" firstAttribute="top" secondItem="VFC-Zw-Hut" secondAttribute="bottom" constant="3" id="iH4-QO-Ypg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Jui-Hu-QHJ" secondAttribute="bottom" constant="1" id="jSD-5e-3TU"/>
+                                                <constraint firstItem="mgD-Pl-t3S" firstAttribute="leading" secondItem="FuX-7r-Qc8" secondAttribute="trailing" constant="8" id="maE-t3-gBs"/>
                                                 <constraint firstItem="VFC-Zw-Hut" firstAttribute="top" secondItem="IVR-vW-Fbq" secondAttribute="topMargin" constant="2" id="tum-3f-iiP"/>
                                                 <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="VFC-Zw-Hut" secondAttribute="leading" id="wqQ-X4-e7S"/>
                                             </constraints>
@@ -64,6 +74,7 @@
                                             <outlet property="businessImage" destination="Jui-Hu-QHJ" id="UWC-lx-QwP"/>
                                             <outlet property="businessName" destination="VFC-Zw-Hut" id="vuk-2z-Nc2"/>
                                             <outlet property="businessRatingImageSmall" destination="FuX-7r-Qc8" id="oz9-Ne-gae"/>
+                                            <outlet property="businessRatingsCount" destination="mgD-Pl-t3S" id="Dsn-xI-WYU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -103,7 +114,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1136" y="152"/>
+            <point key="canvasLocation" x="1136" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="upQ-3X-Vax">

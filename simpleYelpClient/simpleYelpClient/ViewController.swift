@@ -57,6 +57,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationItem.titleView = searchView;
 
         //TODO: Add spinner for loading events
+        yelpTable.rowHeight = UITableViewAutomaticDimension;
     }
     
     override func viewWillAppear(animated: Bool) {

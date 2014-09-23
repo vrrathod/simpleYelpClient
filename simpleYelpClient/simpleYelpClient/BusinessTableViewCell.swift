@@ -12,6 +12,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var businessImage: UIImageView!
     @IBOutlet weak var businessRatingImageSmall: UIImageView!
+    @IBOutlet weak var businessRatingsCount: UILabel!
 
     var businessDetail:YelpBusiness = YelpBusiness();
     
@@ -31,6 +32,7 @@ class BusinessTableViewCell: UITableViewCell {
         self.businessName.text = businessDetail.BusinessName();
         setImageAsyn(businessDetail.BusinessRatingThumbnailURL(), imageView: self.businessRatingImageSmall);
         setImageAsyn(businessDetail.BusinessThumbnailURL(), imageView: self.businessImage);
+        self.businessRatingsCount.text = "\(businessDetail.BusinessReviewCount()) reviews";
     }
     
     func setImageAsyn(stringURL: NSString, imageView:UIImageView) {

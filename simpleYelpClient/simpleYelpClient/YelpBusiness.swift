@@ -28,6 +28,16 @@ class YelpBusiness: NSObject {
         }
     }
     
+    func BusinessNumberInfo(attribute:NSString) -> NSNumber {
+        var attributes:NSArray = (dictBusinessDetails.allKeys as NSArray).filteredArrayUsingPredicate(NSPredicate(format: "SELF like[c] %@", attribute));
+        if(attributes.count > 0 ){
+            var business:NSNumber = dictBusinessDetails[attribute] as NSNumber;
+            return business;
+        } else {
+            return 0;
+        }
+    }
+    
     func BusinessName() -> NSString {
         return BusinessStringInfo("name");
     }
@@ -40,5 +50,8 @@ class YelpBusiness: NSObject {
         return BusinessStringInfo("rating_img_url_small");
     }
     
+    func BusinessReviewCount() -> NSNumber {
+        return BusinessNumberInfo("review_count");
+    }
     
 }
