@@ -73,5 +73,6 @@ class FilterViewController: UIViewController {
     
     func searchClicked( sender: AnyObject ) {
         filterDelegate?.updateSettings(filterSettings);
+        self.navigationController?.popViewControllerAnimated(true);
     }
 }
