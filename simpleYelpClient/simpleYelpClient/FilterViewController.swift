@@ -25,6 +25,7 @@ class FilterViewController: UIViewController {
     
     @IBOutlet weak var segSortBy: UISegmentedControl!
     @IBOutlet weak var segRadius: UISegmentedControl!
+    @IBOutlet weak var switchOfferingDeals: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,8 @@ class FilterViewController: UIViewController {
         case .eYelpRadiusDriving: segRadius.selectedSegmentIndex = 3;
         default: segRadius.selectedSegmentIndex = 0;
         }
+        
+        switchOfferingDeals.on = filterSettings.offeringDeals;
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,5 +64,9 @@ class FilterViewController: UIViewController {
     
     @IBAction func distancePrefChanged(sender: AnyObject) {
         filterSettings.setRadiusWithSegmentIndex(sender.selectedSegmentIndex);
+    }
+    
+    @IBAction func offerringDealsChanged(sender: AnyObject) {
+        filterSettings.offeringDeals = (sender as UISwitch).on;
     }
 }

@@ -170,6 +170,18 @@
                                     <action selector="distancePrefChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="jij-ZD-kT2"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Offering Deals Only" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-ug-1fh">
+                                <rect key="frame" x="21" y="289" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ma-pH-MsJ">
+                                <rect key="frame" x="530" y="281" width="51" height="31"/>
+                                <connections>
+                                    <action selector="offerringDealsChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="Rir-f0-uML"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -181,6 +193,8 @@
                             <constraint firstItem="j7p-Lb-ef8" firstAttribute="top" secondItem="w1v-lu-Xiu" secondAttribute="bottom" constant="26" id="chI-Ac-Moj"/>
                             <constraint firstItem="j7p-Lb-ef8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="5" id="eeF-Mf-Vgd"/>
                             <constraint firstItem="uh7-0p-MLm" firstAttribute="top" secondItem="ubw-mJ-z9T" secondAttribute="bottom" constant="11" id="ijo-Vr-JcP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6ma-pH-MsJ" secondAttribute="trailing" constant="5" id="mXy-Nz-evc"/>
+                            <constraint firstItem="6ma-pH-MsJ" firstAttribute="top" secondItem="j7p-Lb-ef8" secondAttribute="bottom" constant="40" id="mbD-fo-l6h"/>
                             <constraint firstItem="pVK-ym-Um8" firstAttribute="top" secondItem="uh7-0p-MLm" secondAttribute="bottom" constant="8" id="whU-oW-BpK"/>
                         </constraints>
                     </view>
@@ -188,6 +202,7 @@
                     <connections>
                         <outlet property="segRadius" destination="j7p-Lb-ef8" id="dmD-bi-mCV"/>
                         <outlet property="segSortBy" destination="pVK-ym-Um8" id="6Un-Sa-ZyZ"/>
+                        <outlet property="switchOfferingDeals" destination="6ma-pH-MsJ" id="pjI-qN-b6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOj-IG-Z6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
