@@ -27,7 +27,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UoT-Mb-Sbv" id="IVR-vW-Fbq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-Zw-Hut">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFC-Zw-Hut">
                                                     <rect key="frame" x="74" y="16" width="468" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="C86-8W-MnH"/>
@@ -43,13 +43,13 @@
                                                         <constraint firstAttribute="height" constant="50" id="fps-DA-EXU"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-Pl-t3S">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgD-Pl-t3S">
                                                     <rect key="frame" x="126" y="38" width="50" height="10"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-Fq-N7e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-Fq-N7e">
                                                     <rect key="frame" x="71" y="52" width="471" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="AoF-th-2eP"/>
@@ -58,7 +58,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
                                                     <rect key="frame" x="71" y="38" width="50" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="2JL-yV-uDM"/>
@@ -203,7 +203,6 @@
                         <constraints>
                             <constraint firstItem="w1v-lu-Xiu" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="5Wo-m9-EDv"/>
                             <constraint firstItem="pVK-ym-Um8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="7eu-uZ-pxD"/>
-                            <constraint firstItem="pVK-ym-Um8" firstAttribute="top" secondItem="uh7-0p-MLm" secondAttribute="bottom" constant="8" id="966-wM-YoG"/>
                             <constraint firstItem="cjr-qu-YoB" firstAttribute="top" secondItem="j7p-Lb-ef8" secondAttribute="bottom" constant="32" id="Aqz-LO-9il"/>
                             <constraint firstItem="6ma-pH-MsJ" firstAttribute="top" secondItem="pVK-ym-Um8" secondAttribute="bottom" constant="10" id="BWI-SX-6B6"/>
                             <constraint firstItem="j7p-Lb-ef8" firstAttribute="top" secondItem="w1v-lu-Xiu" secondAttribute="bottom" constant="10" id="CFe-AJ-YT4"/>
