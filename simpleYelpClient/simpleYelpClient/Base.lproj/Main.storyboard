@@ -55,7 +55,7 @@
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-Fq-N7e">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-Fq-N7e">
                                                     <rect key="frame" x="116" y="42" width="344" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -67,6 +67,7 @@
                                                 <constraint firstItem="UUf-Fq-N7e" firstAttribute="top" secondItem="FuX-7r-Qc8" secondAttribute="bottom" constant="4" id="8Ai-G5-tDZ"/>
                                                 <constraint firstItem="UUf-Fq-N7e" firstAttribute="top" secondItem="mgD-Pl-t3S" secondAttribute="bottom" constant="4" id="95t-hJ-5cg"/>
                                                 <constraint firstItem="UUf-Fq-N7e" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="BLN-5z-841"/>
+                                                <constraint firstItem="UUf-Fq-N7e" firstAttribute="width" secondItem="VFC-Zw-Hut" secondAttribute="width" id="UNB-3x-cbD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VFC-Zw-Hut" secondAttribute="trailing" constant="5" id="Vcp-Eq-0bo"/>
                                                 <constraint firstItem="Jui-Hu-QHJ" firstAttribute="leading" secondItem="IVR-vW-Fbq" secondAttribute="leadingMargin" constant="5" id="Yko-Im-cgq"/>
                                                 <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="bNx-Kt-yGh"/>

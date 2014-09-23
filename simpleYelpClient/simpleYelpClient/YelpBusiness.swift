@@ -56,8 +56,7 @@ class YelpBusiness: NSObject {
     
     func BusinessAddress() -> NSString {
         var locationInfo:NSDictionary =  dictBusinessDetails["location"] as NSDictionary;
-        var addressArray = locationInfo["address"] as NSArray;
-        return addressArray.componentsJoinedByString(",");
+        return (locationInfo["display_address"] as NSArray).componentsJoinedByString(",");
     }
     
 }

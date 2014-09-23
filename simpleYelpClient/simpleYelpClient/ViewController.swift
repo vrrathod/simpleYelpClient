@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //----------------------------------------------------------------------------
     func successHandler(request:AFHTTPRequestOperation!, inResult:AnyObject!) -> Void {
         NSLog("All Right! we've got some data to process!");
-//        NSLog("\(inResult)");
+        NSLog("\(inResult)");
         self.tableContents = inResult["businesses"] as? NSArray;
         self.yelpTable.reloadData();
         self.pullHandler.endRefreshing();
@@ -134,7 +134,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         searchBar.text = "";
         client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
         searchBar.endEditing(true);
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
