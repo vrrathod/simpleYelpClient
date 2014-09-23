@@ -16,6 +16,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                        accessToken: YelpConstants.ACCESS_TOKEN(),
                                        accessSecret: YelpConstants.ACCESS_SECRET() );
     
+    // Search settings object
+    var settings:YelpFilter = YelpFilter();
+    
     /// contents of the table is stored in following array
     var tableContents: NSArray? ;
     
@@ -95,16 +98,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //----------------------------------------------------------------------------
     // Table View : View Delegate
     //----------------------------------------------------------------------------
-//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 200;
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.searchBar.endEditing(true);
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension;
+    }
+
 
     //----------------------------------------------------------------------------
     // Helper methods
     //----------------------------------------------------------------------------
     func successHandler(request:AFHTTPRequestOperation!, inResult:AnyObject!) -> Void {
         NSLog("All Right! we've got some data to process!");
-        NSLog("\(inResult)");
         self.tableContents = inResult["businesses"] as? NSArray;
         self.yelpTable.reloadData();
         self.pullHandler.endRefreshing();
@@ -134,13 +141,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
         searchBar.endEditing(true);
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.searchBar.endEditing(true);
+
+    //----------------------------------------------------------------------------
+    // segue
+    //----------------------------------------------------------------------------
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if( "filterSettings" == segue.identifier ){
+            var filterViewController:FilterViewController = segue.destinationViewController as FilterViewController;
+            filterViewController.setFilterSettings( self.settings );
+        }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension;
-    }
 }
 

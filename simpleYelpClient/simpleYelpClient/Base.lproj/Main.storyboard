@@ -58,7 +58,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
                                                     <rect key="frame" x="71" y="38" width="50" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="2JL-yV-uDM"/>
@@ -98,7 +98,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xq6-gr-7YG">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Ien-GL-5Lf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Ien-GL-5Lf">
+                            <connections>
+                                <segue destination="6IF-Mv-cf7" kind="show" identifier="filterSettings" id="0HO-qo-4kk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -118,6 +122,71 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1136" y="149"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="lMK-bU-2Nq">
+            <objects>
+                <viewController id="6IF-Mv-cf7" customClass="FilterViewController" customModule="simpleYelpClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ubw-mJ-z9T"/>
+                        <viewControllerLayoutGuide type="bottom" id="cjr-qu-YoB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VOs-DK-OBm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pVK-ym-Um8">
+                                <rect key="frame" x="21" y="104" width="558" height="29"/>
+                                <segments>
+                                    <segment title="Best Match"/>
+                                    <segment title="Distance"/>
+                                    <segment title="Highest Rated"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorting Preferences:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-0p-MLm">
+                                <rect key="frame" x="21" y="75" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Distance Preferences :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1v-lu-Xiu">
+                                <rect key="frame" x="21" y="166" width="173" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7p-Lb-ef8">
+                                <rect key="frame" x="21" y="213" width="558" height="29"/>
+                                <segments>
+                                    <segment title="Here"/>
+                                    <segment title="Walking"/>
+                                    <segment title="Biking"/>
+                                    <segment title="Driving"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pVK-ym-Um8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="5" id="8bh-aV-Ub5"/>
+                            <constraint firstItem="pVK-ym-Um8" firstAttribute="top" secondItem="ubw-mJ-z9T" secondAttribute="bottom" constant="40" id="DcE-Lk-gdR"/>
+                            <constraint firstItem="uh7-0p-MLm" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="5" id="Jdh-gI-UV4"/>
+                            <constraint firstItem="pVK-ym-Um8" firstAttribute="trailing" secondItem="VOs-DK-OBm" secondAttribute="trailingMargin" constant="-5" id="Xh1-wJ-Uht"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j7p-Lb-ef8" secondAttribute="trailing" constant="5" id="YpK-fg-3Bz"/>
+                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="top" secondItem="w1v-lu-Xiu" secondAttribute="bottom" constant="26" id="chI-Ac-Moj"/>
+                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="5" id="eeF-Mf-Vgd"/>
+                            <constraint firstItem="uh7-0p-MLm" firstAttribute="top" secondItem="ubw-mJ-z9T" secondAttribute="bottom" constant="11" id="ijo-Vr-JcP"/>
+                            <constraint firstItem="pVK-ym-Um8" firstAttribute="top" secondItem="uh7-0p-MLm" secondAttribute="bottom" constant="8" id="whU-oW-BpK"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="segRadius" destination="j7p-Lb-ef8" id="dmD-bi-mCV"/>
+                        <outlet property="segSortBy" destination="pVK-ym-Um8" id="6Un-Sa-ZyZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOj-IG-Z6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="149"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="upQ-3X-Vax">
