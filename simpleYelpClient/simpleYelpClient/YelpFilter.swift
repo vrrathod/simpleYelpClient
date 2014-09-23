@@ -41,6 +41,16 @@ class YelpFilter: NSObject {
         default: return 0;
         }
     }
+    
+    func setSortValue( value:NSInteger ) {
+        switch ( value ) {
+        case 0: sort = SortingStyle.eYelpSortBestMatch;
+        case 1: sort = SortingStyle.eYelpSortDistance;
+        case 2: sort = SortingStyle.eYelpSortHighestRated;
+        default:
+            sort = SortingStyle.eYelpSortBestMatch
+        }
+    }
    
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // radius: meters : Default driving
@@ -48,42 +58,40 @@ class YelpFilter: NSObject {
     
     func radiusValue () -> NSInteger {
         switch( radius ){
-        case .eYelpRadiusHere: return 500;
-        case .eYelpRadiusWalking: return 1000;
-        case .eYelpRadiusBiking: return 2000;
+        case .eYelpRadiusHere: return 1000;
+        case .eYelpRadiusWalking: return 1600;
+        case .eYelpRadiusBiking: return 3200;
         case .eYelpRadiusDriving: return 5000;
         default: return 500;
         }
     }
     
     func setRadiusWithValue(value:NSInteger) {
-        if( value <= 500) {
+        if( value <= 1000) {
             radius = RadiusValues.eYelpRadiusHere;
-        } else if ( value <= 1000 ) {
+        } else if ( value <= 1600 ) {
             radius = RadiusValues.eYelpRadiusWalking;
-        } else if ( value <= 2000 ) {
+        } else if ( value <= 3200 ) {
             radius = RadiusValues.eYelpRadiusBiking;
         } else {
             radius = RadiusValues.eYelpRadiusDriving;
         }
     }
+    
+    func setRadiusWithSegmentIndex(value:NSInteger) {
+        switch( value ) {
+        case 0: radius = RadiusValues.eYelpRadiusHere;
+        case 1: radius = RadiusValues.eYelpRadiusWalking;
+        case 2: radius = RadiusValues.eYelpRadiusBiking;
+        case 3: radius = RadiusValues.eYelpRadiusDriving;
+        default: radius = RadiusValues.eYelpRadiusHere;
+        }
+    }
+
 
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // offering deals, lets default to false.
     var offeringDeals:Bool = false;
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-    func requestForGet() -> NSString {
-        var reqString:NSMutableString = NSMutableString();
-        // sorting
-        reqString.appendFormat("&sort=\(sortValue())");
-        // radius
-        reqString.appendFormat("&radius_filter=\(radiusValue())");
-        // deals
-        reqString.appendFormat("&deals_filter=\(offeringDeals)");
-        // category
-        // reqString.appendFormat("&category_filter=\(category)");
-        
-        return reqString;
-    }
 };

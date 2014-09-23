@@ -142,6 +142,9 @@
                                     <segment title="Distance"/>
                                     <segment title="Highest Rated"/>
                                 </segments>
+                                <connections>
+                                    <action selector="sortingChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="ikZ-aH-Agy"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorting Preferences:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-0p-MLm">
                                 <rect key="frame" x="21" y="75" width="156" height="21"/>
@@ -163,6 +166,9 @@
                                     <segment title="Biking"/>
                                     <segment title="Driving"/>
                                 </segments>
+                                <connections>
+                                    <action selector="distancePrefChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="jij-ZD-kT2"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

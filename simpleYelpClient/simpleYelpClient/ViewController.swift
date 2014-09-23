@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+protocol ViewControllerDelegate {
+    func updateSettings( filterSettings:YelpFilter ) -> Void;
+};
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, ViewControllerDelegate {
 
     // Client object for making Yelp queries.
     var client:YelpClient = YelpClient(consumerKey: YelpConstants.CONSUMER_KEY(),
@@ -18,6 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // Search settings object
     var settings:YelpFilter = YelpFilter();
+    
+    // last search term
+    var lastSearchTerm:NSString = "";
     
     /// contents of the table is stored in following array
     var tableContents: NSArray? ;
@@ -66,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewWillAppear(animated);
         //TODO: default to last search term.
         //TODO: i.e. serialize what user searched last time.
-        client.searchWithTerm("", success: successHandler, failure: failureHandler);
+        client.searchWithTerm(lastSearchTerm, success: successHandler, failure: failureHandler);
     }
 
     //----------------------------------------------------------------------------
@@ -132,13 +139,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //----------------------------------------------------------------------------
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
+        lastSearchTerm = searchBar.text;
+        client.searchWithTerm( lastSearchTerm, success: successHandler , failure: failureHandler);
         searchBar.endEditing(true);
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.text = "";
-        client.searchWithTerm(searchBar.text, success: successHandler , failure: failureHandler);
+        searchBar.text = lastSearchTerm;
+        client.searchWithTerm( lastSearchTerm , success: successHandler , failure: failureHandler);
         searchBar.endEditing(true);
     }
 
@@ -149,8 +157,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if( "filterSettings" == segue.identifier ){
             var filterViewController:FilterViewController = segue.destinationViewController as FilterViewController;
             filterViewController.setFilterSettings( self.settings );
+            filterViewController.filterDelegate = self;
         }
     }
     
+    //----------------------------------------------------------------------------
+    // View Controller Delegate
+    //----------------------------------------------------------------------------
+
+    func updateSettings( filterSettings:YelpFilter ) {
+        self.settings = filterSettings;
+        client.setDealsFilter(settings.offeringDeals);
+        client.setDistanceFilter( settings.radiusValue() );
+        client.setSortFilter( settings.sortValue() );
+    }
 }
 

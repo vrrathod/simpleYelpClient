@@ -22,12 +22,28 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         super.init(coder: aDecoder);
     }
     
+    var filterParams:NSMutableDictionary = NSMutableDictionary();
+    
+    func setSortFilter( value : NSInteger ) {
+        filterParams["sort"] = value;
+    }
+    
+    func setDistanceFilter ( value : NSInteger ) {
+        filterParams["radius_filter"] = value;
+    }
+    
+    func setDealsFilter( value : Bool ) {
+        filterParams["deals_filter"] = value;
+    }
+    
     //------------------------------------------------------------------------------------------------
     func searchWithTerm(term:NSString, success:((operation:AFHTTPRequestOperation!, responseObject:AnyObject!)->Void), failure:((operation:AFHTTPRequestOperation!, error:NSError!)->Void)) -> AFHTTPRequestOperation {
         
         //TODO: update locaiton to be more precise
-        var params:NSDictionary = ["term":term, "location":"San Francisco"];
-        
+        var params:NSMutableDictionary = NSMutableDictionary(dictionary: filterParams);
+        params["term"] = term;
+        params["location"] = "San Francisco";
+                
         return self.GET("search", parameters: params, success: success, failure: failure);
     }
     

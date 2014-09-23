@@ -14,9 +14,13 @@ class FilterViewController: UIViewController {
     //----------------------------------------------------------------------------
     var filterSettings:YelpFilter = YelpFilter();
 
+    // lets have a delegation for updating filter
+    var filterDelegate:ViewControllerDelegate?;
+    
     func setFilterSettings( settings: YelpFilter ) {
         filterSettings = settings;
     }
+    
     //----------------------------------------------------------------------------
     
     @IBOutlet weak var segSortBy: UISegmentedControl!
@@ -41,23 +45,21 @@ class FilterViewController: UIViewController {
         default: segRadius.selectedSegmentIndex = 0;
         }
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        filterDelegate?.updateSettings(filterSettings);
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func sortingChanged(sender: AnyObject) {
+        filterSettings.setSortValue( sender.selectedSegmentIndex );
     }
-    */
-    //----------------------------------------------------------------------------
-    // segue
-    //----------------------------------------------------------------------------
     
+    @IBAction func distancePrefChanged(sender: AnyObject) {
+        filterSettings.setRadiusWithSegmentIndex(sender.selectedSegmentIndex);
+    }
 }
