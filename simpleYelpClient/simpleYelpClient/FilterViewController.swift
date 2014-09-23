@@ -18,7 +18,7 @@ class FilterViewController: UIViewController {
     var filterDelegate:ViewControllerDelegate?;
     
     func setFilterSettings( settings: YelpFilter ) {
-        filterSettings = settings;
+        filterSettings = settings.copy() as YelpFilter;
     }
     
     //----------------------------------------------------------------------------
@@ -26,6 +26,7 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var segSortBy: UISegmentedControl!
     @IBOutlet weak var segRadius: UISegmentedControl!
     @IBOutlet weak var switchOfferingDeals: UISwitch!
+    var searchButton:UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +48,10 @@ class FilterViewController: UIViewController {
         }
         
         switchOfferingDeals.on = filterSettings.offeringDeals;
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        filterDelegate?.updateSettings(filterSettings);
+        
+        // Search button on the bar
+        searchButton = UIBarButtonItem(title: "Search", style: UIBarButtonItemStyle.Bordered, target: self, action: "searchClicked:");
+        self.navigationItem.rightBarButtonItem = searchButton;
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,5 +69,9 @@ class FilterViewController: UIViewController {
     
     @IBAction func offerringDealsChanged(sender: AnyObject) {
         filterSettings.offeringDeals = (sender as UISwitch).on;
+    }
+    
+    func searchClicked( sender: AnyObject ) {
+        filterDelegate?.updateSettings(filterSettings);
     }
 }

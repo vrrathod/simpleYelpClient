@@ -24,7 +24,14 @@ enum RadiusValues {
 };
 
 // ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ====
-class YelpFilter: NSObject {
+class YelpFilter: NSObject, NSCopying {
+    
+    required override init() {
+        sort = SortingStyle.eYelpSortBestMatch;
+        category = "";
+        radius = RadiusValues.eYelpRadiusDriving;
+        offeringDeals = false;
+    }
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     var category:NSString = ""; // TODO: make it an enum
@@ -94,4 +101,12 @@ class YelpFilter: NSObject {
     var offeringDeals:Bool = false;
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        let myCopy = self.dynamicType();
+        myCopy.sort = self.sort;
+        myCopy.category = self.category;
+        myCopy.radius = self.radius;
+        myCopy.offeringDeals = self.offeringDeals;
+        return myCopy
+    }
 };
