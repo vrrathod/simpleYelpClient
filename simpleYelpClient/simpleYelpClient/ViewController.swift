@@ -57,7 +57,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationItem.titleView = searchView;
 
         //TODO: Add spinner for loading events
-        yelpTable.rowHeight = UITableViewAutomaticDimension;
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -97,7 +96,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Table View : View Delegate
     //----------------------------------------------------------------------------
 //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 50;
+//        return 200;
 //    }
 
     //----------------------------------------------------------------------------
@@ -138,6 +137,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.searchBar.endEditing(true);
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension;
     }
 }
 
