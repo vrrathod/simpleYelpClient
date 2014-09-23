@@ -43,7 +43,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FuX-7r-Qc8">
-                                                    <rect key="frame" x="117" y="30" width="50" height="10"/>
+                                                    <rect key="frame" x="117" y="31" width="50" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="OTJ-sq-XgQ"/>
                                                         <constraint firstAttribute="width" constant="50" id="fc0-1C-wjI"/>
@@ -55,9 +55,18 @@
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-Fq-N7e">
+                                                    <rect key="frame" x="116" y="42" width="344" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Jui-Hu-QHJ" firstAttribute="top" secondItem="IVR-vW-Fbq" secondAttribute="topMargin" constant="5" id="5Dn-ZS-7WQ"/>
+                                                <constraint firstItem="UUf-Fq-N7e" firstAttribute="top" secondItem="FuX-7r-Qc8" secondAttribute="bottom" constant="4" id="8Ai-G5-tDZ"/>
+                                                <constraint firstItem="UUf-Fq-N7e" firstAttribute="top" secondItem="mgD-Pl-t3S" secondAttribute="bottom" constant="4" id="95t-hJ-5cg"/>
+                                                <constraint firstItem="UUf-Fq-N7e" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="BLN-5z-841"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VFC-Zw-Hut" secondAttribute="trailing" constant="5" id="Vcp-Eq-0bo"/>
                                                 <constraint firstItem="Jui-Hu-QHJ" firstAttribute="leading" secondItem="IVR-vW-Fbq" secondAttribute="leadingMargin" constant="5" id="Yko-Im-cgq"/>
                                                 <constraint firstItem="FuX-7r-Qc8" firstAttribute="leading" secondItem="Jui-Hu-QHJ" secondAttribute="trailing" constant="8" id="bNx-Kt-yGh"/>
@@ -71,6 +80,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="businessAddress" destination="UUf-Fq-N7e" id="Wnm-5P-rWw"/>
                                             <outlet property="businessImage" destination="Jui-Hu-QHJ" id="UWC-lx-QwP"/>
                                             <outlet property="businessName" destination="VFC-Zw-Hut" id="vuk-2z-Nc2"/>
                                             <outlet property="businessRatingImageSmall" destination="FuX-7r-Qc8" id="oz9-Ne-gae"/>
@@ -114,7 +124,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1136" y="151"/>
+            <point key="canvasLocation" x="1136" y="150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="upQ-3X-Vax">
