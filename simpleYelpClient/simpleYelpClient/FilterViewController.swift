@@ -9,7 +9,10 @@
 import UIKit
 
 
-class FilterViewController: UIViewController {
+class FilterViewController: UITableViewController {
+    //----------------------------------------------------------------------------
+    @IBOutlet weak var pickerSort: UIPickerView!
+    @IBOutlet weak var pickerDistance: UIPickerView!
     
     //----------------------------------------------------------------------------
     var filterSettings:YelpFilter = YelpFilter();
@@ -37,7 +40,7 @@ class FilterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
     func searchClicked( sender: AnyObject ) {
         filterDelegate?.updateSettings(filterSettings);
         self.navigationController?.popViewControllerAnimated(true);
