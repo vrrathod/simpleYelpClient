@@ -134,99 +134,9 @@
                     <view key="view" contentMode="scaleToFill" id="VOs-DK-OBm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pVK-ym-Um8">
-                                <rect key="frame" x="26" y="105" width="548" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="A9y-ar-AsG"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Best Match"/>
-                                    <segment title="Distance"/>
-                                    <segment title="Highest Rated"/>
-                                </segments>
-                                <connections>
-                                    <action selector="sortingChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="ikZ-aH-Agy"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorting Preferences:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-0p-MLm">
-                                <rect key="frame" x="26" y="74" width="156" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="KE3-ns-ZqR"/>
-                                    <constraint firstAttribute="height" constant="21" id="wyO-E7-1ki"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Preferences :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1v-lu-Xiu">
-                                <rect key="frame" x="26" y="465" width="173" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="173" id="5Ya-I3-SYa"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="173" id="OHT-Ck-CeW"/>
-                                    <constraint firstAttribute="height" constant="21" id="mSB-ab-6FY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ma-pH-MsJ">
-                                <rect key="frame" x="525" y="143" width="51" height="31"/>
-                                <connections>
-                                    <action selector="offerringDealsChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="Rir-f0-uML"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Offering Deals Only" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIE-ug-1fh">
-                                <rect key="frame" x="26" y="153" width="149" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="5zE-us-Lma"/>
-                                    <constraint firstAttribute="width" constant="149" id="R2k-5X-58t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j7p-Lb-ef8">
-                                <rect key="frame" x="26" y="496" width="548" height="29"/>
-                                <segments>
-                                    <segment title="Here"/>
-                                    <segment title="Walking"/>
-                                    <segment title="Biking"/>
-                                    <segment title="Driving"/>
-                                </segments>
-                                <connections>
-                                    <action selector="distancePrefChanged:" destination="6IF-Mv-cf7" eventType="valueChanged" id="jij-ZD-kT2"/>
-                                </connections>
-                            </segmentedControl>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="w1v-lu-Xiu" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="5Wo-m9-EDv"/>
-                            <constraint firstItem="pVK-ym-Um8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="7eu-uZ-pxD"/>
-                            <constraint firstItem="cjr-qu-YoB" firstAttribute="top" secondItem="j7p-Lb-ef8" secondAttribute="bottom" constant="32" id="Aqz-LO-9il"/>
-                            <constraint firstItem="6ma-pH-MsJ" firstAttribute="top" secondItem="pVK-ym-Um8" secondAttribute="bottom" constant="10" id="BWI-SX-6B6"/>
-                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="top" secondItem="w1v-lu-Xiu" secondAttribute="bottom" constant="10" id="CFe-AJ-YT4"/>
-                            <constraint firstItem="cIE-ug-1fh" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="K7e-Ft-LNv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6ma-pH-MsJ" secondAttribute="trailing" constant="10" id="ReP-te-7fg"/>
-                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="UT4-4W-hcX"/>
-                            <constraint firstItem="cIE-ug-1fh" firstAttribute="top" secondItem="pVK-ym-Um8" secondAttribute="bottom" constant="20" id="UUB-Jj-6yO"/>
-                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="VWV-FN-rAy"/>
-                            <constraint firstItem="pVK-ym-Um8" firstAttribute="trailing" secondItem="VOs-DK-OBm" secondAttribute="trailingMargin" constant="-10" id="lmo-U2-4Xz"/>
-                            <constraint firstItem="uh7-0p-MLm" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="nd3-Pw-lzB"/>
-                            <constraint firstItem="uh7-0p-MLm" firstAttribute="top" secondItem="ubw-mJ-z9T" secondAttribute="bottom" constant="10" id="ook-fl-Mqh"/>
-                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="trailing" secondItem="VOs-DK-OBm" secondAttribute="trailingMargin" constant="-10" id="pgN-yU-lmo"/>
-                            <constraint firstItem="cjr-qu-YoB" firstAttribute="top" secondItem="j7p-Lb-ef8" secondAttribute="bottom" constant="32" id="uaO-nr-4ua"/>
-                            <constraint firstItem="pVK-ym-Um8" firstAttribute="top" secondItem="uh7-0p-MLm" secondAttribute="bottom" constant="10" id="udP-EB-Ria"/>
-                            <constraint firstItem="pVK-ym-Um8" firstAttribute="leading" secondItem="VOs-DK-OBm" secondAttribute="leadingMargin" constant="10" id="vbH-77-lxU"/>
-                            <constraint firstItem="j7p-Lb-ef8" firstAttribute="top" secondItem="w1v-lu-Xiu" secondAttribute="bottom" constant="10" id="zFg-wj-GAG"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <connections>
-                        <outlet property="segRadius" destination="j7p-Lb-ef8" id="dmD-bi-mCV"/>
-                        <outlet property="segSortBy" destination="pVK-ym-Um8" id="6Un-Sa-ZyZ"/>
-                        <outlet property="switchOfferingDeals" destination="6ma-pH-MsJ" id="pjI-qN-b6D"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOj-IG-Z6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
