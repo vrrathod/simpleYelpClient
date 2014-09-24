@@ -32,7 +32,7 @@ class YelpFilter: NSObject, NSCopying {
         radius = RadiusValues.eYelpRadiusDriving;
         offeringDeals = false;
     }
-    
+
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     var category:NSString = ""; // TODO: make it an enum
     
@@ -58,34 +58,33 @@ class YelpFilter: NSObject, NSCopying {
             sort = SortingStyle.eYelpSortBestMatch
         }
     }
-   
+    
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // radius: meters : Default driving
     var radius:RadiusValues = RadiusValues.eYelpRadiusDriving;
     
     func radiusValue () -> NSInteger {
         switch( radius ){
-        case .eYelpRadiusHere: return 1000;
+        case .eYelpRadiusHere: return 0;
+        case .eYelpRadiusWalking: return 1;
+        case .eYelpRadiusBiking: return 2;
+        case .eYelpRadiusDriving: return 3;
+        default: return 0;
+        }
+    }
+    
+    func radiusValueInMeters() -> NSInteger {
+        switch( radius ){
+        case .eYelpRadiusHere: return 500;
         case .eYelpRadiusWalking: return 1600;
         case .eYelpRadiusBiking: return 3200;
         case .eYelpRadiusDriving: return 5000;
         default: return 500;
         }
+
     }
     
     func setRadiusWithValue(value:NSInteger) {
-        if( value <= 1000) {
-            radius = RadiusValues.eYelpRadiusHere;
-        } else if ( value <= 1600 ) {
-            radius = RadiusValues.eYelpRadiusWalking;
-        } else if ( value <= 3200 ) {
-            radius = RadiusValues.eYelpRadiusBiking;
-        } else {
-            radius = RadiusValues.eYelpRadiusDriving;
-        }
-    }
-    
-    func setRadiusWithSegmentIndex(value:NSInteger) {
         switch( value ) {
         case 0: radius = RadiusValues.eYelpRadiusHere;
         case 1: radius = RadiusValues.eYelpRadiusWalking;
@@ -94,7 +93,6 @@ class YelpFilter: NSObject, NSCopying {
         default: radius = RadiusValues.eYelpRadiusHere;
         }
     }
-
 
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // offering deals, lets default to false.

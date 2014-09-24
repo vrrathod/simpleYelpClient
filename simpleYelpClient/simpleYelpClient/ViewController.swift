@@ -168,7 +168,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func updateSettings( filterSettings:YelpFilter ) {
         self.settings = filterSettings;
         client.setDealsFilter(settings.offeringDeals);
-        client.setDistanceFilter( settings.radiusValue() );
+        client.setDistanceFilter( settings.radiusValueInMeters() );
         client.setSortFilter( settings.sortValue() );
     }
 }
